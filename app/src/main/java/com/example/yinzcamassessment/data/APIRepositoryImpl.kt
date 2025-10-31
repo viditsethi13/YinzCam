@@ -27,7 +27,7 @@ class APIRepositoryImpl: APIRepository  {
     private val apiService = RetrofitClient.apiService
 
     override suspend fun getSchedules(): List<GameDisplay> {
-        var gameList = mutableListOf<GameDisplay>()
+        val gameList = mutableListOf<GameDisplay>()
         val response = apiService.getSchedules()
         val primaryTeam = Team(
             triCode = response.team.triCode,
