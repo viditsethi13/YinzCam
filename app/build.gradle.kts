@@ -56,9 +56,9 @@ dependencies {
     implementation(libs.com.squareup.retrofit2.retrofit.converter.gson)
     implementation(libs.io.coil.kt.coil.compose)
     implementation(libs.androidx.compose.material.material.icons.extended)
-    implementation("com.google.dagger:hilt-android:2.57.2")
-    kapt ("com.google.dagger:hilt-compiler:2.57.2")
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation(libs.hilt.android)
+    kapt (libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
