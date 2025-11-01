@@ -1,9 +1,9 @@
-package com.example.yinzcamassessment.domain
+package com.example.yinzcamassessment.data.remote.dto
 
-enum class GameStatus(status: String) {
-    FINAL("F"),
-    BYE("B"),
-    SCHEDULED("S");
+enum class GameStatus() {
+    FINAL(),
+    BYE(),
+    SCHEDULED();
 
     companion object {
         fun fromType(type: String): GameStatus {

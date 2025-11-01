@@ -1,6 +1,6 @@
-package com.example.yinzcamassessment.data
+package com.example.yinzcamassessment.data.remote
 
-import com.example.yinzcamassessment.domain.TeamSchedule
+import com.example.yinzcamassessment.data.remote.dto.TeamSchedule
 import retrofit2.http.GET
 
 interface APIService {

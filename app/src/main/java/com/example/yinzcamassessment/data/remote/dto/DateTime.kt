@@ -1,4 +1,4 @@
-package com.example.yinzcamassessment.domain
+package com.example.yinzcamassessment.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 

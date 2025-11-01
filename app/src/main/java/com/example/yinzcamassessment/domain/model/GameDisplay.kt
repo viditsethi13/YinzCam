@@ -1,4 +1,6 @@
-package com.example.yinzcamassessment.domain
+package com.example.yinzcamassessment.domain.model
+
+import com.example.yinzcamassessment.data.remote.dto.GameStatus
 
 data class GameDisplay(
     val homeTeamName: String = "",

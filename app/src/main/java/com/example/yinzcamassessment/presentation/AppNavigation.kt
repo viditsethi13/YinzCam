@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.yinzcamassessment.presentation.screens.ScheduleScreen
+import com.example.yinzcamassessment.presentation.screens.schedule.ScheduleScreen
 import com.example.yinzcamassessment.presentation.viewmodel.ScheduleViewModel
 
 object AppRoutes{

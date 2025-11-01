@@ -1,4 +1,4 @@
-package com.example.yinzcamassessment
+package com.example.yinzcamassessment.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.navigation.compose.rememberNavController
-import com.example.yinzcamassessment.presentation.AppNavigation
 import com.example.yinzcamassessment.presentation.viewmodel.ScheduleViewModel
 import com.example.yinzcamassessment.ui.theme.YinzCamAssessmentTheme
 
