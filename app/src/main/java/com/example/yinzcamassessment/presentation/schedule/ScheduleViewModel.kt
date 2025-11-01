@@ -1,25 +1,21 @@
-package com.example.yinzcamassessment.presentation.viewmodel
+package com.example.yinzcamassessment.presentation.schedule
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.yinzcamassessment.common.Resource
-import com.example.yinzcamassessment.data.repository.APIRepositoryImpl
-import com.example.yinzcamassessment.domain.model.GameDisplay
+import com.example.yinzcamassessment.domain.repository.APIRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
-data class ScheduleState(
-    val games: List<GameDisplay> = emptyList(),
-    val isLoading: Boolean = false,
-    val error: String? = null
-)
-
-class ScheduleViewModel: ViewModel() {
-    private val apiRepository = APIRepositoryImpl()
-
+@HiltViewModel
+class ScheduleViewModel @Inject constructor(
+    private val apiRepository: APIRepository
+): ViewModel() {
     private val _state = MutableStateFlow(ScheduleState())
     val state = _state.asStateFlow()
 

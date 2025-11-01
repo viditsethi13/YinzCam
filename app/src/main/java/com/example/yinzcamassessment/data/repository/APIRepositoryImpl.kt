@@ -1,37 +1,27 @@
 package com.example.yinzcamassessment.data.repository
 
+import com.example.yinzcamassessment.common.Constants
 import com.example.yinzcamassessment.common.Resource
 import com.example.yinzcamassessment.data.remote.APIService
-import com.example.yinzcamassessment.domain.model.GameDisplay
 import com.example.yinzcamassessment.data.remote.dto.GameStatus
 import com.example.yinzcamassessment.data.remote.dto.Team
+import com.example.yinzcamassessment.domain.model.GameDisplay
 import com.example.yinzcamassessment.domain.repository.APIRepository
+import jakarta.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.TimeZone
 
-object RetrofitClient{
-    const val BASE_URL = "http://files.yinzcam.com.s3.amazonaws.com/"
-    const val LOGO_URL = "https://yc-app-resources.s3.amazonaws.com/"
-    val apiService: APIService by lazy {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(APIService::class.java)
-    }
-}
 
-
-class APIRepositoryImpl: APIRepository {
-
-    private val apiService = RetrofitClient.apiService
+class APIRepositoryImpl @Inject constructor(
+    private val apiService: APIService,
+    private val logoUrl: String,
+    private val logoUrlSuffix: String
+): APIRepository{
 
     override suspend fun getSchedules(): Flow<Resource<List<GameDisplay>>> = flow {
 
@@ -69,8 +59,8 @@ class APIRepositoryImpl: APIRepository {
                             GameDisplay(
                                 homeTeamName = homeTeam.name,
                                 awayTeamName = awayTeam.name,
-                                homeTeamLogoUrl = "${RetrofitClient.LOGO_URL}nfl/logos/nfl_${homeTeam.triCode.lowercase()}_light.png",
-                                awayTeamLogoUrl = "${RetrofitClient.LOGO_URL}nfl/logos/nfl_${awayTeam.triCode.lowercase()}_light.png",
+                                homeTeamLogoUrl = "$logoUrl${homeTeam.triCode.lowercase()}$logoUrlSuffix",
+                                awayTeamLogoUrl = "$logoUrl${awayTeam.triCode.lowercase()}$logoUrlSuffix",
                                 homeScore = homeScore,
                                 awayScore = awayScore,
                                 date = formatDate(game.date.timeStamp),

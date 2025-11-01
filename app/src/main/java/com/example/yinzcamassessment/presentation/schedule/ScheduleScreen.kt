@@ -1,4 +1,4 @@
-package com.example.yinzcamassessment.presentation.screens.schedule
+package com.example.yinzcamassessment.presentation.schedule
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -40,7 +40,6 @@ import coil.compose.AsyncImage
 import com.example.yinzcamassessment.common.Constants
 import com.example.yinzcamassessment.data.remote.dto.GameStatus
 import com.example.yinzcamassessment.domain.model.GameDisplay
-import com.example.yinzcamassessment.presentation.viewmodel.ScheduleViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

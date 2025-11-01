@@ -22,5 +22,9 @@ object Constants {
 
     val TeamLogoSize = 20.dp
 
-    val VSText = "@"
+    const val VSText = "@"
+
+    const val BASE_URL = "http://files.yinzcam.com.s3.amazonaws.com/"
+    const val LOGO_URL_PREFIX = "https://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_"
+    const val LOGO_URL_SUFFIX = "_light.png"
 }

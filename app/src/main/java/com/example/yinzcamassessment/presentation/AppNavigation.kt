@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.yinzcamassessment.presentation.screens.schedule.ScheduleScreen
-import com.example.yinzcamassessment.presentation.viewmodel.ScheduleViewModel
+import com.example.yinzcamassessment.presentation.schedule.ScheduleScreen
+import com.example.yinzcamassessment.presentation.schedule.ScheduleViewModel
 
 object AppRoutes{
     const val SCHEDULE_SCREEN = "scheduleScreen"
