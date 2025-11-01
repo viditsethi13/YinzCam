@@ -44,6 +44,7 @@ class APIRepositoryImpl: APIRepository {
                 name = response.team.name,
                 record = response.team.record
             )
+            val year = fetchYear(response.defaultGameId)
             response.gameSection.forEach { gameSection ->
                 gameSection.games.forEach { game ->
                     if (GameStatus.fromType(game.gameType) != GameStatus.BYE) {
@@ -79,7 +80,7 @@ class APIRepositoryImpl: APIRepository {
                                 status = GameStatus.fromType(game.gameType),
                                 homeRecord = homeTeam.record,
                                 awayRecord = awayTeam.record,
-                                heading = gameSection.heading
+                                heading = "$year ${gameSection.heading}"
                             )
                         )
                     }
@@ -90,7 +91,7 @@ class APIRepositoryImpl: APIRepository {
                                 homeTeamName = primaryTeam.name,
                                 status = GameStatus.BYE,
                                 week = game.week,
-                                heading = gameSection.heading
+                                heading = "$year ${gameSection.heading}"
                             )
                         )
                     }
@@ -141,6 +142,13 @@ class APIRepositoryImpl: APIRepository {
         } catch (e: Exception) {
             println("Error formatting date: ${e.message}")
             timestamp
+        }
+    }
+
+    private fun fetchYear(defaultGameId: String): String{
+        return when {
+            defaultGameId.length < 4 -> ""
+            else -> defaultGameId.take( 4)
         }
     }
 

@@ -6,5 +6,7 @@ data class TeamSchedule(
     @SerializedName("Team")
     val team: Team,
     @SerializedName("GameSection")
-    val gameSection: List<GameSection>
+    val gameSection: List<GameSection>,
+    @SerializedName("DefaultGameId")
+    val defaultGameId: String
 )
